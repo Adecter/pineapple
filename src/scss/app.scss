@@ -309,10 +309,19 @@ h6 {
             margin: -1px 100px 0px 100px;
 
             .form {
+
                 text-align: left;
 
                 &__cup {
-                    display: none;
+
+                    &__hidden {
+                        display: none;
+                    }
+
+                    &__visible {
+                        display: block;
+                        margin: -104px 0px 24px 38px;
+                    }
                 }
 
                 &__title {
@@ -335,6 +344,9 @@ h6 {
                     font-weight: normal;
                     margin-left: 40px;
 
+                    &__cup {
+                        margin: 21px 50px 0px 38px;
+                    }
 
                 }
 
@@ -378,19 +390,21 @@ h6 {
                     &__button {
                         display: flex;
                         position: absolute;
-                        padding: 24px 30px 23px 30px;
+                        padding: 28px 30px 23px 30px;
                         right: -184px;
                         top: 32px;
                         border: 0;
                         background-color: #fff;
                         overflow: hidden;
+                        outline: 0;
+                        outline-offset: 0;
 
                         & svg {
                             opacity: 0.3;
                             fill: #131821;
                         }
 
-                        &:hover {
+                        &:hover:enabled {
                             & svg {
                                 opacity: 1;
                                 fill: #4066A5;
@@ -398,27 +412,57 @@ h6 {
                         }
 
                         &__error {
+
                             border-right: 1px solid #B80808;
                             border-top: 1px solid #B80808;
                             border-bottom: 1px solid #B80808;
                         }
 
+                        // &:disabled,
+                        // button[disabled] {
 
+                        // }
 
                     }
 
-                    &__text{
+                    &__text {
                         color: #B80808;
+                        font-size: 16px;
+                        line-height: 28px;
 
-                        &__hidden{
-                        opacity: 0;
+                        &__hidden {
+                            opacity: 0;
                         }
-                        
-                        &__visible{
+
+                        &__visible {
                             opacity: 1;
                         }
                     }
-                                        
+
+                    .mail__label {
+                        color: red;
+                        // opacity: 0;
+                        visibility: hidden;
+                        margin: 0 10px;
+
+                        //  width: 221px;
+                        //  height: 10px;
+                        &__visible {
+                            visibility: visible;
+                        }
+                    }
+
+                    &:focus-within {
+                        .mail__label {
+                            visibility: visible;
+                            // opacity: 1;
+                        }
+                    }
+
+                    &__hidden {
+                        display: none;
+                    }
+
                 }
 
                 //end mail
@@ -429,7 +473,7 @@ h6 {
             }
 
             //end form
-            & hr {
+            hr {
                 margin: 50px 0;
             }
 
@@ -525,7 +569,15 @@ h6 {
                 padding: 30px 20px 0px 20px;
 
                 &__cup {
-                    display: none;
+
+                    &__hidden {
+                        display: none;
+                    }
+
+                    &__visible {
+                        display: block;
+                        margin-bottom: 33px;
+                    }
                 }
 
                 &__title {
@@ -550,6 +602,7 @@ h6 {
                 .mail {
 
                     position: relative;
+
 
                     .input {
                         text-decoration: none;
@@ -576,11 +629,19 @@ h6 {
                             border-top: 1px solid #B80808;
                             border-bottom: 1px solid #B80808;
                         }
+
+                        &:focus {
+                            outline: 0;
+                            outline-offset: 0;
+                            box-shadow: 0px 30px 40px rgba(19, 24, 33, 0.06);
+
+                        }
+
                     }
 
                     &__button {
                         position: absolute;
-                        padding: 23px 23px 23px 10px;
+                        padding: 24px 23px 23px 10px;
                         right: 0px;
                         height: 60px;
                         width: 48px;
@@ -598,29 +659,52 @@ h6 {
                             fill: #131821;
                         }
 
+
                         &:hover {
                             & svg {
                                 opacity: 1;
                                 fill: #4066A5;
                             }
                         }
+
                         &__error {
+
                             border-right: 1px solid #B80808;
                             border-top: 1px solid #B80808;
                             border-bottom: 1px solid #B80808;
                         }
+
                     }
 
-                    p {
+                    .mail__label {
+                        display: inline-block;
+                        box-sizing: border-box;
+                        color: red;
+                        height: 10px;
+                        font-size: 10px;
                         visibility: hidden;
-                        margin: 0;
-                        color: #B80808;
-                        font-size: 16px;
-                        line-height: 24px;
-                        &__error{
+                        margin: 0 10px;
+
+                        &__visible {
                             visibility: visible;
                         }
+
+                        &__hidden {
+                            visibility: hidden;
+                        }
                     }
+
+                    &:focus-within {
+                        .mail__label {
+                            visibility: visible;
+                            // opacity: 1;
+                        }
+                    }
+
+                    &__hidden {
+                        display: none;
+                    }
+
                 }
 
                 .terms {
@@ -640,7 +724,7 @@ h6 {
             hr {
                 width: 295px;
                 background: #E3E3E4;
-                margin-top: 19px;
+                margin-top: 39px;
                 opacity: 0.3;
             }
 
@@ -669,36 +753,3 @@ h6 {
 }
 
 //end media
-
-/////////////////////
-
-
-// .background {
-
-
-//     .left_form {}
-
-//     .header {
-
-//         &__container {
-//             margin-bottom: 129px;
-//         }
-//     }
-
-//     .section__container {
-//         .form {
-//             &__cup {
-//                 display: block;
-//                 margin: 0px 0px 22px 36px;
-//             }
-
-//             .mail {
-//                 display: none;
-//             }
-
-//             .terms {
-//                 display: none;
-//             }
-//         }
-//     }
-// }
